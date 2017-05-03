@@ -38,7 +38,17 @@ task copyAndCloneTask () {
     }
 
     copy {
-        from '../adobe/samples/Android/ADBMobileSamples/libs/'
+        from('../adobe/samples/Android/ADBMobileSamples/libs/') {
+          include '**/adobeMobileScene*.jar'
+        }
+        from '../sdk/Android/AdobeMobileLibrary/libs/' {
+          include '**/adobeMobileLibrary*.jar'
+        }
+        into '../app/libs/'
+    }
+    
+    copy {
+        
         into '../app/libs/'
     }
 
